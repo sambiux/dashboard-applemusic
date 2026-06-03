@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // 👈 Importamos para el botón de regresar
+import { useRouter } from "next/navigation"; 
 
 interface Song {
   id: string;
@@ -16,7 +16,7 @@ interface Song {
 export default function LibraryPage() {
   const [songs, setSongs] = useState<Song[]>([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter(); // 👈 Inicializamos el enrutador
+  const router = useRouter(); 
 
   useEffect(() => {
     const fetchLikedSongs = async () => {
@@ -65,7 +65,7 @@ export default function LibraryPage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col md:flex-row">
       
-      {/* 🖥️ SIDEBAR (Solo en escritorio) */}
+     
       <aside className="w-[260px] bg-zinc-950 border-r border-zinc-800 p-6 hidden md:flex flex-col shrink-0">
         <h1 className="text-3xl font-bold mb-10">Apple Music</h1>
         <nav className="flex flex-col gap-5 text-zinc-300">
@@ -76,7 +76,7 @@ export default function LibraryPage() {
         </nav>
       </aside>
 
-      {/* 📱 NAVBAR INFERIOR (Solo en móviles) */}
+    
       <nav className="fixed bottom-0 left-0 right-0 h-16 bg-zinc-950/95 backdrop-blur-md border-t border-zinc-900 flex justify-around items-center md:hidden z-50 text-[11px] text-zinc-400">
         <Link href="/mvp" className="flex flex-col items-center gap-1">
           <span className="text-lg"></span>
@@ -98,7 +98,7 @@ export default function LibraryPage() {
         </button>
       </nav>
 
-      {/* 📜 CONTENIDO DE LA BIBLIOTECA */}
+      
       <main className="flex-1 pb-24 md:pb-8 overflow-y-auto">
         
         {/* HEADER CON BOTÓN ATRÁS PARA MÓVIL */}
@@ -122,7 +122,7 @@ export default function LibraryPage() {
           </div>
         </div>
 
-        {/* CONTENIDO / GRID */}
+        
         <div className="p-4 md:p-8">
           {loading ? (
             <p className="text-zinc-400 text-sm">Cargando...</p>
@@ -146,7 +146,7 @@ export default function LibraryPage() {
                     />
                   </div>
 
-                  {/* Info de la canción con textos truncados */}
+                  
                   <div className="p-3 min-w-0">
                     <h3 className="font-medium text-sm md:text-base truncate">
                       {song.title}
